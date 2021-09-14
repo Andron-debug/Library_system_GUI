@@ -9,14 +9,7 @@ namespace Library_system_GUI
     class Depository
     {
         private List<Book> Books;
-        public List<Book> books
-        {
-            get
-            {
-                List<Book> bl = new List<Book>(Books);
-                return bl;
-            }
-        }
+        public List<Book> books;
         public Depository()
         {
             Books = new List<Book>();

@@ -44,6 +44,7 @@ namespace Library_system_GUI
             this.label6 = new System.Windows.Forms.Label();
             this.TakeBook = new System.Windows.Forms.Button();
             this.BookBack = new System.Windows.Forms.Button();
+            this.BackAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BooklistBox
@@ -190,11 +191,22 @@ namespace Library_system_GUI
             this.BookBack.UseVisualStyleBackColor = true;
             this.BookBack.Click += new System.EventHandler(this.BookBack_Click);
             // 
+            // BackAll
+            // 
+            this.BackAll.Location = new System.Drawing.Point(582, 404);
+            this.BackAll.Name = "BackAll";
+            this.BackAll.Size = new System.Drawing.Size(193, 28);
+            this.BackAll.TabIndex = 15;
+            this.BackAll.Text = "Вернуть все книги";
+            this.BackAll.UseVisualStyleBackColor = true;
+            this.BackAll.Click += new System.EventHandler(this.BackAll_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BackAll);
             this.Controls.Add(this.BookBack);
             this.Controls.Add(this.TakeBook);
             this.Controls.Add(this.label6);
@@ -235,6 +247,7 @@ namespace Library_system_GUI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button TakeBook;
         private System.Windows.Forms.Button BookBack;
+        private System.Windows.Forms.Button BackAll;
     }
 }
 

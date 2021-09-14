@@ -20,6 +20,12 @@ namespace Library_system_GUI
             BookReaders = new List<BookReader>();
             dep = new Depository();
         }
+        //public Form1 (Depository Dep, List<BookReader> bookReaders)
+        //{
+        //    InitializeComponent();
+        //    BookReaders = new List<BookReader>(bookReaders);
+        //    dep = Dep;
+        //}
         private void List_to_index(ListBox lbox, List<Book> bl)
         {
             lbox.Items.Clear();
@@ -80,6 +86,14 @@ namespace Library_system_GUI
             Book bk = br.GetBooks()[ReaderBooksListBox.SelectedIndex];
             br.BookBack(bk.id);
             dep.AcceptBook(bk);
+            List_to_index(ReaderBooksListBox, br.GetBooks());
+            List_to_index(BooklistBox, dep.GetBooks());
+        }
+
+        private void BackAll_Click(object sender, EventArgs e)
+        {
+            BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
+            dep.AcceptBooks(br.BackAll());
             List_to_index(ReaderBooksListBox, br.GetBooks());
             List_to_index(BooklistBox, dep.GetBooks());
         }
