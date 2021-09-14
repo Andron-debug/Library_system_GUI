@@ -15,6 +15,8 @@ namespace Library_system_GUI
         public Form1()
         {
             InitializeComponent();
+            BookReaders = new List<BookReader>();
+            dep = new Depository();
         }
         private List<BookReader> BookReaders = new List<BookReader>();
         private Depository dep;
