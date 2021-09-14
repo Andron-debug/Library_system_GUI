@@ -8,11 +8,20 @@ namespace Library_system_GUI
 {
     class BookReader
     {
-        public string Name;
-        public int Year;
-        public const int maxBook = 10;
-        public List<Book> Books;
-        
+        private string Name;
+        private int Year;
+        private const int maxBook = 10;
+        private List<Book> Books;
+        public string name{ get { return Name; } }
+        public int year { get { return Year; } }
+        public List<Book> books
+        {
+            get
+            {
+                List<Book> bl = new List<Book>(books);
+                return bl;
+            }
+        }
         public BookReader(string name, int  year)
         {
             Name = name;
