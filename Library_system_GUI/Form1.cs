@@ -17,9 +17,11 @@ namespace Library_system_GUI
             InitializeComponent();
         }
         private List<BookReader> BookReaders = new List<BookReader>();
+        private Depository dep;
         private void Form1_Load(object sender, EventArgs e)
         {
             BookReaders = new List<BookReader>();
+            dep = new Depository();
         }
 
         private void AddBookReader_Click(object sender, EventArgs e)
@@ -30,6 +32,18 @@ namespace Library_system_GUI
                 BookReader br = new BookReader(f.name, f.year);
                 BookReaderlistBox.Items.Add(f.name);
             }
+        }
+
+        private void AddBk_Click(object sender, EventArgs e)
+        {
+            AddBook f = new AddBook();
+            if(f.ShowDialog() == DialogResult.OK)
+            {
+                Book bk = new Book(f.id, f.author, f.name);
+                dep.AcceptBook(bk);
+                BooklistBox.Items.Add(f.id+" "+f.Name);
+            }
+
         }
     }
 }

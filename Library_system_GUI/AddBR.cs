@@ -37,6 +37,10 @@ namespace Library_system_GUI
                 DialogResult = DialogResult.OK;
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Заполните все поля");
+            }
         }
         
     }
