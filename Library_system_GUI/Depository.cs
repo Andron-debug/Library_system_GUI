@@ -34,6 +34,11 @@ namespace Library_system_GUI
             }
             return null;
         }
+        public List<Book> GetBooks()
+        {
+            List<Book> bl = new List<Book>(Books);
+            return bl;
+        }
         public void AcceptBook(Book book)
         {
             Books.Add(book);

@@ -42,6 +42,7 @@ namespace Library_system_GUI
             this.label5 = new System.Windows.Forms.Label();
             this.ReaderBooksListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.TakeBook = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BooklistBox
@@ -168,11 +169,22 @@ namespace Library_system_GUI
             this.label6.TabIndex = 12;
             this.label6.Text = "Список книг";
             // 
+            // TakeBook
+            // 
+            this.TakeBook.Location = new System.Drawing.Point(582, 336);
+            this.TakeBook.Name = "TakeBook";
+            this.TakeBook.Size = new System.Drawing.Size(193, 28);
+            this.TakeBook.TabIndex = 13;
+            this.TakeBook.Text = "Взять книгу";
+            this.TakeBook.UseVisualStyleBackColor = true;
+            this.TakeBook.Click += new System.EventHandler(this.TakeBook_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TakeBook);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ReaderBooksListBox);
             this.Controls.Add(this.label5);
@@ -209,6 +221,7 @@ namespace Library_system_GUI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox ReaderBooksListBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button TakeBook;
     }
 }
 

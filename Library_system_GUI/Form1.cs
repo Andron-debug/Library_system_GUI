@@ -12,6 +12,8 @@ namespace Library_system_GUI
 {
     public partial class Form1 : Form
     {
+        private List<BookReader> BookReaders = new List<BookReader>();
+        private Depository dep;
         public Form1()
         {
             InitializeComponent();
@@ -23,8 +25,7 @@ namespace Library_system_GUI
             lbox.Items.Clear();
             foreach (Book b in bl) lbox.Items.Add(b.id + " " + b.name);
         }
-        private List<BookReader> BookReaders = new List<BookReader>();
-        private Depository dep;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             BookReaders = new List<BookReader>();
@@ -49,7 +50,7 @@ namespace Library_system_GUI
             {
                 Book bk = new Book(f.id, f.author, f.name);
                 dep.AcceptBook(bk);
-                BooklistBox.Items.Add(f.id+" "+f.Name);
+                BooklistBox.Items.Add(f.id+" "+f.author+" "+f.name);
             }
 
         }
@@ -60,6 +61,17 @@ namespace Library_system_GUI
             ReaderNameTextBox.Text = br.name;
             ReaderYearTextBox.Text = br.year.ToString();
             List_to_index(ReaderBooksListBox, br.GetBooks());
+        }
+
+        private void TakeBook_Click(object sender, EventArgs e)
+        {
+            BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
+            Book bk = dep.GetBooks()[BooklistBox.SelectedIndex];
+            if (br.TakeBook(bk)) MessageBox.Show("Книга взята");
+            else MessageBox.Show("Лимит привышен");
+            dep.GiveBook(bk.id);
+            List_to_index(ReaderBooksListBox, br.GetBooks());
+            List_to_index(BooklistBox, dep.GetBooks());
         }
     }
 }
