@@ -42,5 +42,9 @@ namespace Library_system_GUI
         {
             Books.AddRange(booklist);
         }
+        public override string ToString()
+        {
+            return "Депозиторий. Не выдано " + Books.Count + " книг";
+        }
     }
 }

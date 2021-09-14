@@ -16,10 +16,20 @@ namespace Library_system_GUI
         {
             InitializeComponent();
         }
-
+        private List<BookReader> BookReaders = new List<BookReader>();
         private void Form1_Load(object sender, EventArgs e)
         {
+            BookReaders = new List<BookReader>();
+        }
 
+        private void AddBookReader_Click(object sender, EventArgs e)
+        {
+            AddBR f = new AddBR();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                BookReader br = new BookReader(f.name, f.year);
+                BookReaderlistBox.Items.Add(f.name);
+            }
         }
     }
 }
