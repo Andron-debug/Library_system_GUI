@@ -14,13 +14,9 @@ namespace Library_system_GUI
         private List<Book> Books;
         public string name{ get { return Name; } }
         public int year { get { return Year; } }
-        public List<Book> books
+        public List<Book> GetBooks()
         {
-            get
-            {
-                List<Book> bl = new List<Book>(books);
-                return bl;
-            }
+            return Books;     
         }
         public BookReader(string name, int  year)
         {

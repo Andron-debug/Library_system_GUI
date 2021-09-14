@@ -37,10 +37,10 @@ namespace Library_system_GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ReaderNameTextBox = new System.Windows.Forms.TextBox();
+            this.ReaderYearTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ReaderBooksListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@ namespace Library_system_GUI
             this.BookReaderlistBox.ScrollAlwaysVisible = true;
             this.BookReaderlistBox.Size = new System.Drawing.Size(207, 276);
             this.BookReaderlistBox.TabIndex = 1;
+            this.BookReaderlistBox.SelectedIndexChanged += new System.EventHandler(this.BookReaderlistBox_SelectedIndexChanged);
             // 
             // AddBk
             // 
@@ -123,19 +124,21 @@ namespace Library_system_GUI
             this.label4.TabIndex = 7;
             this.label4.Text = "Читатель";
             // 
-            // textBox1
+            // ReaderNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(582, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 22);
-            this.textBox1.TabIndex = 8;
+            this.ReaderNameTextBox.Enabled = false;
+            this.ReaderNameTextBox.Location = new System.Drawing.Point(582, 74);
+            this.ReaderNameTextBox.Name = "ReaderNameTextBox";
+            this.ReaderNameTextBox.Size = new System.Drawing.Size(173, 22);
+            this.ReaderNameTextBox.TabIndex = 8;
             // 
-            // textBox2
+            // ReaderYearTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(582, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 22);
-            this.textBox2.TabIndex = 9;
+            this.ReaderYearTextBox.Enabled = false;
+            this.ReaderYearTextBox.Location = new System.Drawing.Point(582, 117);
+            this.ReaderYearTextBox.Name = "ReaderYearTextBox";
+            this.ReaderYearTextBox.Size = new System.Drawing.Size(173, 22);
+            this.ReaderYearTextBox.TabIndex = 9;
             // 
             // label5
             // 
@@ -146,15 +149,15 @@ namespace Library_system_GUI
             this.label5.TabIndex = 10;
             this.label5.Text = "Год рождения";
             // 
-            // listBox1
+            // ReaderBooksListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(582, 166);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(193, 164);
-            this.listBox1.TabIndex = 11;
+            this.ReaderBooksListBox.FormattingEnabled = true;
+            this.ReaderBooksListBox.ItemHeight = 16;
+            this.ReaderBooksListBox.Location = new System.Drawing.Point(582, 166);
+            this.ReaderBooksListBox.Name = "ReaderBooksListBox";
+            this.ReaderBooksListBox.ScrollAlwaysVisible = true;
+            this.ReaderBooksListBox.Size = new System.Drawing.Size(193, 164);
+            this.ReaderBooksListBox.TabIndex = 11;
             // 
             // label6
             // 
@@ -171,10 +174,10 @@ namespace Library_system_GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.ReaderBooksListBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ReaderYearTextBox);
+            this.Controls.Add(this.ReaderNameTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -201,10 +204,10 @@ namespace Library_system_GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ReaderNameTextBox;
+        private System.Windows.Forms.TextBox ReaderYearTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ReaderBooksListBox;
         private System.Windows.Forms.Label label6;
     }
 }

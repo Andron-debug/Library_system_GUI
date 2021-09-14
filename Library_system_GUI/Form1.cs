@@ -18,6 +18,11 @@ namespace Library_system_GUI
             BookReaders = new List<BookReader>();
             dep = new Depository();
         }
+        private void List_to_index(ListBox lbox, List<Book> bl)
+        {
+            lbox.Items.Clear();
+            foreach (Book b in bl) lbox.Items.Add(b.id + " " + b.name);
+        }
         private List<BookReader> BookReaders = new List<BookReader>();
         private Depository dep;
         private void Form1_Load(object sender, EventArgs e)
@@ -32,6 +37,7 @@ namespace Library_system_GUI
             if (f.ShowDialog() == DialogResult.OK)
             {
                 BookReader br = new BookReader(f.name, f.year);
+                BookReaders.Add(br);
                 BookReaderlistBox.Items.Add(f.name);
             }
         }
@@ -46,6 +52,14 @@ namespace Library_system_GUI
                 BooklistBox.Items.Add(f.id+" "+f.Name);
             }
 
+        }
+
+        private void BookReaderlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
+            ReaderNameTextBox.Text = br.name;
+            ReaderYearTextBox.Text = br.year.ToString();
+            List_to_index(ReaderBooksListBox, br.GetBooks());
         }
     }
 }
