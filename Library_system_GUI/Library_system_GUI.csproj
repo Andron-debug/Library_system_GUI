@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="BookReader.cs" />
+    <Compile Include="Depository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
