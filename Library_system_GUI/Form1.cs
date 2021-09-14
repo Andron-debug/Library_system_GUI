@@ -73,5 +73,15 @@ namespace Library_system_GUI
             List_to_index(ReaderBooksListBox, br.GetBooks());
             List_to_index(BooklistBox, dep.GetBooks());
         }
+
+        private void BookBack_Click(object sender, EventArgs e)
+        {
+            BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
+            Book bk = br.GetBooks()[ReaderBooksListBox.SelectedIndex];
+            br.BookBack(bk.id);
+            dep.AcceptBook(bk);
+            List_to_index(ReaderBooksListBox, br.GetBooks());
+            List_to_index(BooklistBox, dep.GetBooks());
+        }
     }
 }
