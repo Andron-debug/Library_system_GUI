@@ -46,7 +46,7 @@ namespace Library_system_GUI
             if (Books.Count == 0) return null;
             for (int i = 0; i<Books.Count; i++) 
             {
-                if (Books[i].Id == id)
+                if (Books[i].id == id)
                 {
                     Book bk = Books[i];
                     Books.RemoveAt(i);
