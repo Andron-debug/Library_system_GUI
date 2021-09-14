@@ -13,12 +13,11 @@ namespace Library_system_GUI
 {
     public partial class Form1 : Form
     {
-        private List<BookReader> BookReaders = new List<BookReader>();
+        private List<BookReader> BookReaders;
         private Depository dep;
         public Form1()
         {
             InitializeComponent();
-            
             BookReaders = new List<BookReader>();
             
 
@@ -28,7 +27,7 @@ namespace Library_system_GUI
             InitializeComponent();
             Stream s = File.OpenRead(filename);
             BinaryFormatter bf = new BinaryFormatter();
-            BookReaders = (List<BookReader>)bf.Deserialize(s);
+            BookReaders = new List<BookReader>((List<BookReader>)bf.Deserialize(s));
             dep = (Depository) bf.Deserialize(s);
             List_to_index(BooklistBox, dep.GetBooks());
             List_to_index(BookReaderlistBox, BookReaders);
@@ -45,11 +44,6 @@ namespace Library_system_GUI
             foreach (BookReader b in bl) lbox.Items.Add(b.name);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            BookReaders = new List<BookReader>();
-            dep = new Depository();
-        }
 
         private void AddBookReader_Click(object sender, EventArgs e)
         {
@@ -76,10 +70,17 @@ namespace Library_system_GUI
 
         private void BookReaderlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
-            ReaderNameTextBox.Text = br.name;
-            ReaderYearTextBox.Text = br.year.ToString();
-            List_to_index(ReaderBooksListBox, br.GetBooks());
+            try
+            {
+                BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
+                ReaderNameTextBox.Text = br.name;
+                ReaderYearTextBox.Text = br.year.ToString();
+                List_to_index(ReaderBooksListBox, br.GetBooks());
+            }
+            catch
+            {
+                MessageBox.Show(BookReaderlistBox.SelectedIndex.ToString());
+            }
         }
 
         private void TakeBook_Click(object sender, EventArgs e)
@@ -111,14 +112,16 @@ namespace Library_system_GUI
             List_to_index(BooklistBox, dep.GetBooks());
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string fn = "Test.test";
-            BinaryFormatter bf = new BinaryFormatter();
-            Stream s = File.Create(fn);
-            bf.Serialize(s, BookReaders);
-            bf.Serialize(s, dep);
-            s.Close();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                Stream s = File.Create(saveFileDialog1.FileName);
+                bf.Serialize(s, BookReaders);
+                bf.Serialize(s, dep);
+                s.Close();
+            }
             Application.Exit();
         }
     }

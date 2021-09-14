@@ -45,6 +45,7 @@ namespace Library_system_GUI
             this.TakeBook = new System.Windows.Forms.Button();
             this.BookBack = new System.Windows.Forms.Button();
             this.BackAll = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // BooklistBox
@@ -224,8 +225,7 @@ namespace Library_system_GUI
             this.Controls.Add(this.BooklistBox);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,6 +249,7 @@ namespace Library_system_GUI
         private System.Windows.Forms.Button TakeBook;
         private System.Windows.Forms.Button BookBack;
         private System.Windows.Forms.Button BackAll;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
