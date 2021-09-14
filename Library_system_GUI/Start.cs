@@ -23,5 +23,17 @@ namespace Library_system_GUI
             f.Show();
             this.Hide();
         }
+
+        private void Upload_lib_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string lib = openFileDialog1.FileName;
+                Form f = new Form1(lib);
+                f.Show();
+                this.Hide();
+            }
+            
+        }
     }
 }

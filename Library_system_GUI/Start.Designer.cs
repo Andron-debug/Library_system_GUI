@@ -31,6 +31,7 @@ namespace Library_system_GUI
         {
             this.New_lib = new System.Windows.Forms.Button();
             this.Upload_lib = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // New_lib
@@ -51,12 +52,13 @@ namespace Library_system_GUI
             this.Upload_lib.TabIndex = 1;
             this.Upload_lib.Text = "Загрузить библиотеку";
             this.Upload_lib.UseVisualStyleBackColor = true;
+            this.Upload_lib.Click += new System.EventHandler(this.Upload_lib_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 116);
+            this.ClientSize = new System.Drawing.Size(430, 111);
             this.Controls.Add(this.Upload_lib);
             this.Controls.Add(this.New_lib);
             this.Name = "Start";
@@ -69,5 +71,6 @@ namespace Library_system_GUI
 
         private System.Windows.Forms.Button New_lib;
         private System.Windows.Forms.Button Upload_lib;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

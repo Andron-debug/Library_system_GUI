@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_system_GUI
 {
+    [Serializable]
     class BookReader
     {
         private string Name;

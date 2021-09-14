@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Library_system_GUI
 {
+    [Serializable]
     class Depository
     {
         private List<Book> Books;
-        public List<Book> books;
         public Depository()
         {
             Books = new List<Book>();
