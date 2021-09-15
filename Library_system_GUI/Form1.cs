@@ -22,6 +22,7 @@ namespace Library_system_GUI
             
 
         }
+        public void test(Depository d) { }
         public Form1(string filename)
         {
             InitializeComponent();
@@ -70,17 +71,12 @@ namespace Library_system_GUI
 
         private void BookReaderlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
+       
                 BookReader br = BookReaders[BookReaderlistBox.SelectedIndex];
                 ReaderNameTextBox.Text = br.name;
                 ReaderYearTextBox.Text = br.year.ToString();
                 List_to_index(ReaderBooksListBox, br.GetBooks());
-            }
-            catch
-            {
-                MessageBox.Show(BookReaderlistBox.SelectedIndex.ToString());
-            }
+            
         }
 
         private void TakeBook_Click(object sender, EventArgs e)

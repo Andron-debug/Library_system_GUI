@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Library_system_GUI
 {
     [Serializable]
-    class Book
+    public class Book
     {
         private int Id;
         private string Author;

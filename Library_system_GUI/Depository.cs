@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Library_system_GUI
 {
     [Serializable]
-    class Depository
+    public class Depository
     {
         private List<Book> Books;
         public Depository()
